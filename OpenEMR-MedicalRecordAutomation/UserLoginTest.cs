@@ -1,4 +1,5 @@
 ﻿using OpenEMR_MedicalRecordAutomation.AutomationWrapperClass;
+using OpenEMR_MedicalRecordAutomation.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,10 @@ namespace OpenEMR_MedicalRecordAutomation
 {
     public class UserLoginTest : AutomationWrapper
     {
+
+
         [Test]
-        [TestCase("admin","pass","OpenEMR")]
-        [TestCase("accountant","accountant","OpenEMR")]
+        [TestCaseSource(typeof(DataSource),nameof(DataSource.ValidateLoginTest))]
         public void UserName(string username, string password, string expectedTitle)
         {
             driver.FindElement(By.Name("authUser")).SendKeys(username);
