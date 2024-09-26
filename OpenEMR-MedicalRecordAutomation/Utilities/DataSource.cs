@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenEMR_MedicalRecordAutomation.Utilities
 {
-    internal class DataSource
+    public class DataSource
     {
         public static object[] ValidateLoginTest()
 
@@ -28,5 +28,23 @@ namespace OpenEMR_MedicalRecordAutomation.Utilities
 
             return finaldata;
         }
-    }
+
+        public static object[] ValidaLoginTestExcel()
+        {
+            object[] finaldata=ExcelSource.GetSheetIntoObjectArray
+                (@"C:\\AutomationWithC#\\AutomationFrameWorkSolution\\OpenEMR-MedicalRecordAutomation\\TestData\\OpenEMR_TestData.xlsx", "LoginUserTest");
+
+
+            return finaldata;
+        }
+        public static object[] InvalidLoginTestExcel()
+        {
+            object[] finaldata = ExcelSource.GetSheetIntoObjectArray
+                (@"C:\\AutomationWithC#\\AutomationFrameWorkSolution\\OpenEMR-MedicalRecordAutomation\\TestData\\OpenEMR_TestData.xlsx", "InvalidUserLogin");
+
+
+            return finaldata;
+        }
+    
+}
 }

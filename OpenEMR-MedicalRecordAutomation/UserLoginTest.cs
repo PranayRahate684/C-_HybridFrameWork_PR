@@ -14,7 +14,7 @@ namespace OpenEMR_MedicalRecordAutomation
 
 
         [Test]
-        [TestCaseSource(typeof(DataSource),nameof(DataSource.ValidateLoginTest))]
+        [TestCaseSource(typeof(DataSource),nameof(DataSource.ValidaLoginTestExcel))]
         public void LoginUserTest(string username, string password, string expectedTitle)
         {
             driver.FindElement(By.Name("authUser")).SendKeys(username);
@@ -26,7 +26,9 @@ namespace OpenEMR_MedicalRecordAutomation
         }
 
         [Test]
-        [TestCase("saul", "saul234", "Invalid username or password")]
+        //[TestCase("saul", "saul234", "Invalid username or password")]
+
+        [TestCaseSource(typeof(DataSource), nameof(DataSource.InvalidLoginTestExcel))]
         public void InvalidUserLogin(string username, string password, string expectedError)
         {
             driver.FindElement(By.Name("authUser")).SendKeys(username);
