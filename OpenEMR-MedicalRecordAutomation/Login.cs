@@ -16,7 +16,6 @@ namespace OpenEMR_MedicalRecordAutomation.OpenEMR_MedicalRecordAutomation
         [Test]
         public void logintest()
         {
-
             string actualText = driver.Title;
             Assert.That(actualText, Is.EqualTo("OpenEMR Login"));
 

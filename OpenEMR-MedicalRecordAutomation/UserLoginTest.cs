@@ -15,7 +15,7 @@ namespace OpenEMR_MedicalRecordAutomation
 
         [Test]
         [TestCaseSource(typeof(DataSource),nameof(DataSource.ValidateLoginTest))]
-        public void UserName(string username, string password, string expectedTitle)
+        public void LoginUserTest(string username, string password, string expectedTitle)
         {
             driver.FindElement(By.Name("authUser")).SendKeys(username);
             driver.FindElement(By.Id("clearPass")).SendKeys(password);
